@@ -49,6 +49,34 @@ $ composer create-project --prefer-dist laravel/laravel laravel
 
 Finally, open http://localhost/. You will see Laravel default page.
 
+# How to Use XDebug
+
+Use port `9000`.
+
+If you get an error that the port is already used, change the following lines.
+
+1. `docker-compose.yaml`
+
+```
+php-fpm:
+  ports:
+    - 9000
+  expose:
+    - 9000
+```
+
+2. `docker/php-fpm/xdebug.ini`
+
+```
+xdebug.remote_port=9000
+```
+
+3. `docker/workspace/xdebug.ini`
+
+```
+xdebug.remote_port=9000
+```
+
 # How to Connect MySQL
 
 Words beginning with a capital letter are set in `.env` file.
